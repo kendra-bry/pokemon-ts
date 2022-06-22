@@ -1,0 +1,7 @@
+.nav {
+    background-color: rgba(0, 0, 0, 0.712);
+    color: whitesmoke;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
