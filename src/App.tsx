@@ -1,16 +1,17 @@
-import React from 'react';
 import Nav from './components/Nav/Nav';
-import Card from './components/Card/Card';
+import Routes from './Router';
+
 import classes from './App.module.css';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
 	return (
-		<div>
+		<Router>
 			<Nav />
 			<div className={classes.app}>
-				<Card />
+				<Routes />
 			</div>
-		</div>
+		</Router>
 	);
 }
 

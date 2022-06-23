@@ -56,7 +56,7 @@ export const formatPokemonSpecies = (pokemonSpecies: PokemonSpecies): FormattedP
 
 export const formatDescription = (descriptions: FlavorText[]) => {
 	let englishDescription = descriptions.find(description => description.language.name === 'en');
-	return englishDescription?.flavor_text ?? '';
+	return englishDescription?.flavor_text.replace('\f', ' ') ?? '';
 };
 
 export const formatGeneration = (generation: string) => generation.split('-')[1].toUpperCase();
