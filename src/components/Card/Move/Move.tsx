@@ -1,9 +1,9 @@
 import { splitAndCapitalizeWords } from '../../../utilities/functions';
 
-interface MoveProps {
-	name: string;
-	url: string;
-}
+// interface MoveProps {
+// 	name: string;
+// 	url: string;
+// }
 
 const moves = [
 	{

@@ -1,4 +1,4 @@
-// import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { splitAndCapitalizeWords } from '../../utilities/functions';
 
 import classes from './Card.module.css';
@@ -162,6 +162,11 @@ const height = pokemonData.height;
 const weight = pokemonData.weight;
 
 const Card = () => {
+    useEffect(() => {
+        // const data = 
+    }, [])
+
+
 	return (
 		<div className={classes.card}>
 			<div className={classes.header}>
