@@ -1,0 +1,563 @@
+.aliceblue {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #f0f8ff 100%);
+}
+
+.antiquewhite {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #faebd7 100%);
+}
+
+.aqua {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #00ffff 100%);
+}
+
+.aquamarine {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #7fffd4 100%);
+}
+
+.azure {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #f0ffff 100%);
+}
+
+.beige {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #f5f5dc 100%);
+}
+
+.bisque {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #ffe4c4 100%);
+}
+
+.black {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #808080 100%);
+}
+
+.blanchedalmond {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #ffebcd 100%);
+}
+
+.blue {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #0000ff 100%);
+}
+
+.blueviolet {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #8a2be2 100%);
+}
+
+.brown {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #a52a2a 100%);
+}
+
+.burlywood {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #deb887 100%);
+}
+
+.cadetblue {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #5f9ea0 100%);
+}
+
+.chartreuse {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #7fff00 100%);
+}
+
+.chocolate {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #d2691e 100%);
+}
+
+.coral {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #ff7f50 100%);
+}
+
+.cornflowerblue {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #6495ed 100%);
+}
+
+.cornsilk {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #fff8dc 100%);
+}
+
+.crimson {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #dc143c 100%);
+}
+
+.cyan {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #00ffff 100%);
+}
+
+.darkblue {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #00008b 100%);
+}
+
+.darkcyan {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #008b8b 100%);
+}
+
+.darkgoldenrod {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #b8860b 100%);
+}
+
+.darkgray {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #a9a9a9 100%);
+}
+
+.darkgreen {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #006400 100%);
+}
+
+.darkkhaki {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #bdb76b 100%);
+}
+
+.darkmagenta {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #8b008b 100%);
+}
+
+.darkolivegreen {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #556b2f 100%);
+}
+
+.darkorange {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #ff8c00 100%);
+}
+
+.darkorchid {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #9932cc 100%);
+}
+
+.darkred {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #8b0000 100%);
+}
+
+.darksalmon {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #e9967a 100%);
+}
+
+.darkseagreen {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #8fbc8f 100%);
+}
+
+.darkslateblue {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #483d8b 100%);
+}
+
+.darkslategray {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #2f4f4f 100%);
+}
+
+.darkturquoise {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #00ced1 100%);
+}
+
+.darkviolet {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #9400d3 100%);
+}
+
+.deeppink {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #ff1493 100%);
+}
+
+.deepskyblue {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #00bfff 100%);
+}
+
+.dimgray {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #696969 100%);
+}
+
+.dodgerblue {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #1e90ff 100%);
+}
+
+.firebrick {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #b22222 100%);
+}
+
+.floralwhite {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #fffaf0 100%);
+}
+
+.forestgreen {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #228b22 100%);
+}
+
+.fuchsia {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #ff00ff 100%);
+}
+
+.gainsboro {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #dcdcdc 100%);
+}
+
+.ghostwhite {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #f8f8ff 100%);
+}
+
+.gold {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #ffd700 100%);
+}
+
+.goldenrod {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #daa520 100%);
+}
+
+.gray {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #808080 100%);
+}
+
+.green {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #006400 100%);
+}
+
+.greenyellow {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #adff2f 100%);
+}
+
+.honeydew {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #f0fff0 100%);
+}
+
+.hotpink {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #ff69b4 100%);
+}
+
+.indianred {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #cd5c5c 100%);
+}
+
+.indigo {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #4b0082 100%);
+}
+
+.ivory {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #fffff0 100%);
+}
+
+.khaki {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #f0e68c 100%);
+}
+
+.lavender {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #e6e6fa 100%);
+}
+
+.lavenderblush {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #fff0f5 100%);
+}
+
+.lawngreen {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #7cfc00 100%);
+}
+
+.lemonchiffon {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #fffacd 100%);
+}
+
+.lightblue {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #add8e6 100%);
+}
+
+.lightcoral {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #f08080 100%);
+}
+
+.lightcyan {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #e0ffff 100%);
+}
+
+.lightgoldenrodyellow {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #fafad2 100%);
+}
+
+.lightgrey {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #d3d3d3 100%);
+}
+
+.lightgreen {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #90ee90 100%);
+}
+
+.lightpink {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #ffb6c1 100%);
+}
+
+.lightsalmon {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #ffa07a 100%);
+}
+
+.lightseagreen {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #20b2aa 100%);
+}
+
+.lightskyblue {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #87cefa 100%);
+}
+
+.lightslategray {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #778899 100%);
+}
+
+.lightsteelblue {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #b0c4de 100%);
+}
+
+.lightyellow {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #ffffe0 100%);
+}
+
+.lime {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #00ff00 100%);
+}
+
+.limegreen {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #32cd32 100%);
+}
+
+.linen {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #faf0e6 100%);
+}
+
+.magenta {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #ff00ff 100%);
+}
+
+.maroon {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #800000 100%);
+}
+
+.mediumaquamarine {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #66cdaa 100%);
+}
+
+.mediumblue {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #0000cd 100%);
+}
+
+.mediumorchid {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #ba55d3 100%);
+}
+
+.mediumpurple {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #9370d8 100%);
+}
+
+.mediumseagreen {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #3cb371 100%);
+}
+
+.mediumslateblue {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #7b68ee 100%);
+}
+
+.mediumspringgreen {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #00fa9a 100%);
+}
+
+.mediumturquoise {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #48d1cc 100%);
+}
+
+.mediumvioletred {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #c71585 100%);
+}
+
+.midnightblue {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #191970 100%);
+}
+
+.mintcream {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #f5fffa 100%);
+}
+
+.mistyrose {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #ffe4e1 100%);
+}
+
+.moccasin {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #ffe4b5 100%);
+}
+
+.navajowhite {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #ffdead 100%);
+}
+
+.navy {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #000080 100%);
+}
+
+.oldlace {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #fdf5e6 100%);
+}
+
+.olive {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #808000 100%);
+}
+
+.olivedrab {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #6b8e23 100%);
+}
+
+.orange {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #ffa500 100%);
+}
+
+.orangered {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #ff4500 100%);
+}
+
+.orchid {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #da70d6 100%);
+}
+
+.palegoldenrod {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #eee8aa 100%);
+}
+
+.palegreen {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #98fb98 100%);
+}
+
+.paleturquoise {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #afeeee 100%);
+}
+
+.palevioletred {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #d87093 100%);
+}
+
+.papayawhip {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #ffefd5 100%);
+}
+
+.peachpuff {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #ffdab9 100%);
+}
+
+.peru {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #cd853f 100%);
+}
+
+.pink {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #e8a2ae 100%);
+}
+
+.plum {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #dda0dd 100%);
+}
+
+.powderblue {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #b0e0e6 100%);
+}
+
+.purple {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #800080 100%);
+}
+
+.rebeccapurple {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #663399 100%);
+}
+
+.red {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #8b0000 100%);
+}
+
+.rosybrown {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #bc8f8f 100%);
+}
+
+.royalblue {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #4169e1 100%);
+}
+
+.saddlebrown {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #8b4513 100%);
+}
+
+.salmon {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #fa8072 100%);
+}
+
+.sandybrown {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #f4a460 100%);
+}
+
+.seagreen {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #2e8b57 100%);
+}
+
+.seashell {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #fff5ee 100%);
+}
+
+.sienna {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #a0522d 100%);
+}
+
+.silver {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #c0c0c0 100%);
+}
+
+.skyblue {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #87ceeb 100%);
+}
+
+.slateblue {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #6a5acd 100%);
+}
+
+.slategray {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #708090 100%);
+}
+
+.snow {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #fffafa 100%);
+}
+
+.springgreen {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #00ff7f 100%);
+}
+
+.steelblue {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #4682b4 100%);
+}
+
+.tan {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #d2b48c 100%);
+}
+
+.teal {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #008080 100%);
+}
+
+.thistle {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #d8bfd8 100%);
+}
+
+.tomato {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #ff6347 100%);
+}
+
+.turquoise {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #40e0d0 100%);
+}
+
+.violet {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #ee82ee 100%);
+}
+
+.wheat {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #f5deb3 100%);
+}
+
+.white {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #d1d1d1 100%);
+}
+
+.whitesmoke {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #f5f5f5 100%);
+}
+
+.yellow {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #daa520 100%);
+}
+
+.yellowgreen {
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, #9acd32 100%);
+}

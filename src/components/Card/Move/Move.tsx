@@ -1,32 +1,14 @@
-import { splitAndCapitalizeWords } from '../../../utilities/functions';
+import { FC } from 'react';
+import classes from './Move.module.css';
 
-// interface MoveProps {
-// 	name: string;
-// 	url: string;
-// }
-
-const moves = [
-	{
-		move: {
-			name: 'razor-wind',
-			url: 'https://pokeapi.co/api/v2/move/13/',
-		},
-	},
-	{
-		move: {
-			name: 'swords-dance',
-			url: 'https://pokeapi.co/api/v2/move/14/',
-		},
-	},
-];
-
-const Move = () => {
+const Moves: FC<{ moves: string[] }> = ({ moves }) => {
 	return (
-		<>
-			<li>{splitAndCapitalizeWords(moves[0].move.name)}</li>
-			<li>{splitAndCapitalizeWords(moves[1].move.name)}</li>
-		</>
+		<ul className={classes.moves}>
+			{moves.map(move => (
+				<li key={move}>{move}</li>
+			))}
+		</ul>
 	);
 };
 
-export default Move;
+export default Moves;

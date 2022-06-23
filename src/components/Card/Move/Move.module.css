@@ -1,0 +1,13 @@
+.moves {
+    background-color: rgba(255, 255, 255, 0.521);
+    border-radius: 3px 3px 25px 3px;
+    padding: 5px 10px 2px 10px;
+}
+
+.moves li {
+    list-style: none;
+    border-bottom: 2px solid black;
+    margin: 0 0 15px 0px;
+    display: flex;
+    padding-bottom: 3px;
+}

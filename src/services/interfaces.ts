@@ -1,6 +1,37 @@
+export interface APIResource {
+    url: string;
+}
+
+export interface Description {
+    description: string;
+    language: NamedAPIResource;
+}
+
+export interface FlavorText {
+    flavor_text: string;
+    language: NamedAPIResource;
+    version: NamedAPIResource;
+}
+
+export interface Genus {
+    genus: string;
+    language: NamedAPIResource;
+}
+
+export interface Name {
+    name: string;
+    language: NamedAPIResource;
+}
+
 export interface NamedAPIResource {
 	name: string;
 	url: string;
+}
+
+export interface PalParkEncounterArea {
+    base_score: number;
+    rate: number;
+    area: NamedAPIResource;
 }
 
 export interface Pokemon {
@@ -51,6 +82,46 @@ export interface PokemonMoveVersion {
 	level_learned_at: number;
 }
 
+export interface PokemonSpecies {
+    id: number;
+    name: string;
+    order: number;
+    gender_rate: number;
+    capture_rate: number;
+    base_happiness: number;
+    is_baby: boolean;
+    is_legendary: boolean;
+    is_mythical: boolean;
+    hatch_counter: number;
+    has_gender_differences: boolean;
+    forms_switchabe: boolean;
+    growth_rate: NamedAPIResource;
+    pokedex_numbers: PokemonSpeciesDexEntry[];
+    egg_groups: NamedAPIResource[];
+    color: NamedAPIResource;
+    shape: NamedAPIResource;
+    evolves_from_species: NamedAPIResource;
+    evolution_chain: APIResource;
+    habitat: NamedAPIResource;
+    generation: NamedAPIResource;
+    names: Name[];
+    pal_park_encounters: PalParkEncounterArea[];
+    flavor_text_entries: FlavorText[];
+    form_descriptions: Description[];
+    genera: Genus[];
+    varieties: PokemonSpeciesVariety[];
+}
+
+export interface PokemonSpeciesDexEntry {
+    entry_number: number;
+    pokedex: NamedAPIResource;
+}
+
+export interface PokemonSpeciesVariety {
+    is_default: boolean;
+    pokemon: NamedAPIResource;
+}
+
 export interface PokemonSprites {
 	back_default: string;
 	back_female: string;
@@ -88,4 +159,25 @@ export interface PokemonTypePast {
 export interface VersionGameIndex {
 	game_index: number;
 	version: NamedAPIResource;
+}
+
+
+/* ========================================================= */
+
+export interface FormattedPokemon {
+	img: string;
+	name: string;
+	hp_label: string;
+	hp_value: string;
+	order: string;
+	height: string;
+	weight: string;
+	moves: string[];
+	types: string[];
+}
+
+export interface FormattedPokemonSpecies {
+    color: string;
+    description: string;
+    generation: string;    
 }
