@@ -1,0 +1,22 @@
+.actions {
+	display: flex;
+	justify-content: center;
+	width: 350px;
+}
+
+.card_container {
+	display: flex;
+}
+
+.varieties {
+	display: flex;
+	flex-direction: column;
+	/* margin-left: -3px; */
+	z-index: 2;
+}
+
+.varieties .icon {
+	display: flex;
+}
+
+

@@ -1,6 +1,6 @@
 import { Switch, Route } from 'react-router-dom';
 import Pokedex from './pages/Pokedex';
-import Deck from './pages/Deck';
+import Deck from './pages/Deck/Deck';
 import Home from './pages/Home';
 
 
