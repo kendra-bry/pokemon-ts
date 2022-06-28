@@ -190,9 +190,9 @@ export interface FormattedPokemonSpecies {
 }
 
 export interface FormattedPokemonVariety {
+	id: string;
 	is_default: boolean;
 	name: string;
-	number: string;
 	img: FormattedPokemonSprites;
 }
 

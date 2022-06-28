@@ -2,15 +2,14 @@ import { FC } from 'react';
 import Moves from './Move/Move';
 import Description from './Description/Description';
 
-import { capitalizeWord } from '../../utilities/functions';
 import { FormattedPokemon, FormattedPokemonSpecies } from '../../services/interfaces';
 
 import classes from './Card.module.css';
-import colors from '../../utilities/colors-gradient.module.css';
-
-import { typesIcons } from '../../utilities/type-images';
-
 import spinner from '../../resources/img/spinner.png';
+
+import { capitalizeWord } from '../../utilities/functions';
+import colors from '../../utilities/colors-gradient.module.css';
+import { typesIcons } from '../../utilities/type-images';
 
 interface CardProps {
 	loading: boolean;
@@ -18,9 +17,19 @@ interface CardProps {
 	pokemonSpecies: FormattedPokemonSpecies;
 	error: string;
 	selectedImg?: string;
+	showName?: boolean;
+	difficulty?: string;
 }
 
-const Card: FC<CardProps> = ({ loading, pokemon, pokemonSpecies, error, selectedImg }) => {
+const Card: FC<CardProps> = ({
+	loading,
+	pokemon,
+	pokemonSpecies,
+	error,
+	selectedImg,
+	showName = true,
+	difficulty = null,
+}) => {
 	const img = pokemon?.img;
 	const name = pokemon?.name;
 	const hp_label = pokemon?.hp_label;
@@ -34,12 +43,18 @@ const Card: FC<CardProps> = ({ loading, pokemon, pokemonSpecies, error, selected
 	const generation = pokemonSpecies?.generation;
 	const types = pokemon?.types;
 
+	console.log({ pokemon });
+
+	if (difficulty && difficulty === 'Difficult') {
+		
+	}
+
 	return (
 		<div className={`${classes.card} ${colors[color]}`}>
 			{loading && <div className={classes.loading_space}></div>}
 			{!loading && (
 				<div className={classes.header}>
-					{name}
+					{showName && name}
 					<div className={classes.generation}>Gen. {generation}</div>
 					<div className={classes.hp}>
 						<span>{hp_label}</span>

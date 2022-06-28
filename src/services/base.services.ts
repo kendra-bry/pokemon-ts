@@ -2,7 +2,7 @@ import http from './http-config';
 import { Pokemon, PokemonSpecies } from './interfaces';
 
 class DataService {
-	getPokemon(id: string): Promise<Pokemon> {
+	getPokemonById(id: string): Promise<Pokemon> {
 		return http.get(`pokemon/${id}`).then(x => x.data);
 	}
 

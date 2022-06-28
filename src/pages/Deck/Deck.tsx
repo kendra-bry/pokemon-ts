@@ -7,7 +7,7 @@ import { formatPokemon, formatPokemonSpecies } from '../../utilities/functions';
 import dataService from '../../services/base.services';
 import { FormattedPokemon, FormattedPokemonSpecies, FormattedPokemonSprites } from '../../services/interfaces';
 import classes from './Deck.module.css';
-import { faMars, faVenus, faMarsAndVenus, faDiamond } from '@fortawesome/free-solid-svg-icons';
+import { faMars, faVenus, faDiamond } from '@fortawesome/free-solid-svg-icons';
 
 const initialPokemon: FormattedPokemon = {
 	img: { official: '' },
@@ -44,37 +44,41 @@ const PokemonDeck = () => {
 	useEffect(() => {
 		setError('');
 		setLoading(true);
+		setImage('official');
 
-		const getPokemon = async () => {
+		const getPokemonById = async () => {
 			try {
-				const pokemonData = formatPokemon(await dataService.getPokemon(id));
+				const pokemonData = formatPokemon(await dataService.getPokemonById(id));
 				setPokemon(pokemonData);
-				console.log({ pokemonData });
-				const species = formatPokemonSpecies(await dataService.getPokemonSpecies(id));
-				console.log({ species });
+				const species = await formatPokemonSpecies(await dataService.getPokemonSpecies(id));
 				setPokemonSpecies(species);
 				setVariety(species?.varieties[0].name);
 			} catch (error) {
+				console.log('getPokemonById: ', error);
 				// setError(error.message);
 			} finally {
 				setLoading(false);
 			}
 		};
 
-		const enableButtons = (id: string) => {
-			if (id === '1') {
+		const enableButtons = (id: number) => {
+			if (id === 1) {
 				setPreviousDisabled(true);
-			} else if (id > '1' && previousDisabled) {
-				setPreviousDisabled(false);
-			} else if (id >= '898') {
-				setNextDisabled(true);
-			} else if (id < '898' && nextDisabled) {
 				setNextDisabled(false);
+			} else if (id > 1 && previousDisabled) {
+				setPreviousDisabled(false);
+				setNextDisabled(false);
+			} else if (id >= 898) {
+				setNextDisabled(true);
+				setPreviousDisabled(false);
+			} else if (id < 898 && nextDisabled) {
+				setNextDisabled(false);
+				setPreviousDisabled(false);
 			}
 		};
 
-		enableButtons(id);
-		getPokemon();
+		enableButtons(+id);
+		getPokemonById();
 	}, [id, previousDisabled, nextDisabled]);
 
 	const goToNext = () => {
@@ -95,7 +99,6 @@ const PokemonDeck = () => {
 		const selectedVariety = event.target.value;
 		setVariety(selectedVariety);
 		const varietyValues = pokemonSpecies.varieties.find(variety => variety.name === selectedVariety);
-		console.log(varietyValues?.img);
 		setPokemon(prevState => ({
 			...prevState,
 			name: varietyValues?.name as string,
@@ -105,7 +108,7 @@ const PokemonDeck = () => {
 
 	return (
 		<>
-			<div className={classes.card_container}>
+			<div className={classes.page_container}>
 				<Card
 					loading={loading}
 					pokemon={pokemon}
@@ -113,76 +116,70 @@ const PokemonDeck = () => {
 					error={error}
 					selectedImg={image}
 				/>
+
+				<div className={classes.selection}>
+					<label htmlFor="varieties" style={{ margin: '10px' }}>
+						Variety Selection
+					</label>
+					<select name="varieties" id="varieties" onChange={changeVariety} value={variety}>
+						{pokemonSpecies.varieties?.map(variety => (
+							<option key={variety.id}>{variety.name}</option>
+						))}
+					</select>
+				</div>
+
 				<div className={classes.varieties}>
-					<div className={classes.icon}>
-						<IconButton
-							clickHandler={() => changeImage('official')}
-							title="Official Artwork"
-							icon={faDiamond}
-							shiny={false}
-							color="tomato"
-						/>
-					</div>
-					{/* <div className={classes.icon}>
+					<IconButton
+						clickHandler={() => changeImage('official')}
+						title="Official Artwork"
+						icon={faDiamond}
+						shiny={false}
+						color="tomato"
+					/>
+					{pokemon.img.default_3D && (
 						<IconButton
 							clickHandler={() => changeImage('default_3D')}
-							title="Male"
-							icon={faMarsAndVenus}
-							shiny={false}
-							color="darkmagenta"
-						/>
-						<IconButton
-							clickHandler={() => changeImage('shiny_3D')}
-							title="Shiny Male"
-							icon={faMarsAndVenus}
-							shiny={true}
-							color="indianred"
-						/>
-					</div> */}
-					<div className={classes.icon}>
-						<IconButton
-							clickHandler={() => changeImage('default_3D')}
-							title="Male"
+							title="Type I"
 							icon={faMars}
 							shiny={false}
 							color="mediumblue"
 						/>
+					)}
+					{pokemon.img.shiny_3D && (
 						<IconButton
 							clickHandler={() => changeImage('shiny_3D')}
-							title="Shiny Male"
+							title="Type I Shiny"
 							icon={faMars}
 							shiny={true}
 							color="deepskyblue"
 						/>
-					</div>
-					<div className={classes.icon}>
+					)}
+
+					{pokemon.img.female_3D && (
 						<IconButton
 							clickHandler={() => changeImage('female_3D')}
-							title="Female"
+							title="Type II"
 							icon={faVenus}
 							shiny={false}
 							color="mediumvioletred"
 						/>
+					)}
+					{pokemon.img.shiny_female_3D && (
 						<IconButton
 							clickHandler={() => changeImage('shiny_female_3D')}
-							title="Shiny Female"
+							title="Type II Shiny"
 							icon={faVenus}
 							shiny={true}
 							color="deeppink"
 						/>
-					</div>
+					)}
+				</div>
+
+				<div className={classes.actions}>
+					<Button isDisabled={previousDisabled} clickHandler={goToPrev} text="Previous" />
+					<Button isDisabled={nextDisabled} clickHandler={goToNext} text="Next" />
 				</div>
 			</div>
-
-			<div className={classes.actions}>
-				<Button isDisabled={previousDisabled} clickHandler={goToPrev} text="Previous" />
-				<Button isDisabled={nextDisabled} clickHandler={goToNext} text="Next" />
-			</div>
-			<select name="varieties" id="varieties" onChange={changeVariety} value={variety}>
-				{pokemonSpecies.varieties?.map(variety => (
-					<option key={variety.number}>{variety.name}</option>
-				))}
-			</select>
 		</>
 	);
 };

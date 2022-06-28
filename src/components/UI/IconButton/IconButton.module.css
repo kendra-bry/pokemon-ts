@@ -5,14 +5,45 @@
 	cursor: pointer;
     margin: 3px;
     background: rgb(255,255,255);
-}
-
-.icon_button:hover {
-	background: rgb(253, 127, 148);
+    border: 2px solid rgb(99, 99, 99);
+    color: rgb(99, 99, 99);
 }
 
 .icon_button, .icon_button span {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.shiny {
+    color: orange;
+}
+
+.shiny:hover {
+    color: yellow;
+}
+
+.icon_button:hover {
+    border: 2px solid black;
+    color: white;
+}
+
+.tomato:hover {
+	background: #ff6347;
+}
+
+.mediumblue:hover {
+	background: #0000cd;
+}
+
+.deepskyblue:hover {
+	background: #00bfff;
+}
+
+.mediumvioletred:hover {
+	background: #c71585;
+}
+
+.deeppink:hover {
+	background: #ff1493;
 }

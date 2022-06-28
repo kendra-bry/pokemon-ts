@@ -1,5 +1,5 @@
 import { Switch, Route } from 'react-router-dom';
-import Pokedex from './pages/Pokedex';
+import Trainer from './pages/Trainer/Trainer';
 import Deck from './pages/Deck/Deck';
 import Home from './pages/Home';
 
@@ -11,8 +11,8 @@ export const Routes = () => {
 			<Route path="/pokemon/:id">
 				<Deck />
 			</Route>
-			<Route path="/pokedex">
-				<Pokedex />
+			<Route path="/trainer">
+				<Trainer />
 			</Route>
 			<Route path="/">
 				<Home />

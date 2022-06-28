@@ -3,7 +3,6 @@ import { FC } from 'react';
 import classes from './IconButton.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBahai, IconDefinition } from '@fortawesome/free-solid-svg-icons';
-import colors from '../../../utilities/colors-solid.module.css';
 
 interface IconButtonProps {
 	clickHandler: <T>(arg: T) => void;
@@ -15,12 +14,12 @@ interface IconButtonProps {
 
 const IconButton: FC<IconButtonProps> = ({ clickHandler, title, icon, shiny, color }) => {
 	return (
-		<div className={`${classes.icon_button} ${colors[color]}`} title={title} onClick={clickHandler}>
-			{!shiny && <FontAwesomeIcon icon={icon} size="lg" inverse />}
+		<div className={`${classes.icon_button} ${classes[color]}`} title={title} onClick={clickHandler}>
+			{!shiny && <FontAwesomeIcon icon={icon} size="lg" />}
 			{shiny && (
 				<span className="fa-layers fa-fw">
-					<FontAwesomeIcon icon={icon} size="lg" inverse />
-					<FontAwesomeIcon icon={faBahai} size="lg" transform="shrink-8 up-7 left-7" color="yellow" beat />
+					<FontAwesomeIcon icon={icon} size="lg" />
+					<FontAwesomeIcon icon={faBahai} size="lg" transform="shrink-8 up-7 left-7" beat className={classes.shiny} />
 				</span>
 			)}
 		</div>
