@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import dataService from '../../services/base.services';
 import Card from '../../components/Card/Card';
-import page_classes from '../Page.module.css';
-import classes from './Trainer.module.css';
 import { FormikHelpers } from 'formik';
 import { FormattedPokemon, FormattedPokemonSpecies } from '../../services/interfaces';
 import { formatPokemon, formatPokemonSpecies } from '../../utilities/functions';
@@ -14,7 +12,7 @@ import { initialSettingsValues } from '../../components/Form/Settings/Settings';
 import Quiz from '../../components/Form/Quiz/Quiz';
 import { QuizValues } from '../../components/Form/Quiz/Quiz';
 
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Alert } from 'react-bootstrap';
 
 export const initialPokemon: FormattedPokemon = {
 	img: { official: '' },
@@ -39,26 +37,35 @@ export const initialSpecies: FormattedPokemonSpecies = {
 const Trainer = () => {
 	const [solution, setSolution] = useState('');
 	const [error, setError] = useState('');
-	const [showSettingsForm, setShowSettingsForm] = useState(true);
 	const [settings, setSettings] = useState<SettingsValues>(initialSettingsValues);
 	const [pokemon, setPokemon] = useState<FormattedPokemon>(initialPokemon);
 	const [species, setSpecies] = useState<FormattedPokemonSpecies>(initialSpecies);
-	const [showCard, setShowCard] = useState(true);
+	const [guessCounter, setGuessCounter] = useState(0);
+	const [timer, setTimer] = useState(settings.time_limit);
+
 	const [loading, setLoading] = useState(false);
+	const [showCard, setShowCard] = useState(false);
+	const [showSuccess, setShowSuccess] = useState(false);
+	const [showFailure, setShowFailure] = useState(false);
+	const [showSettingsForm, setShowSettingsForm] = useState(true);
 
 	const fetchPokemon = async (values: SettingsValues) => {
+		setShowCard(true);
 		setLoading(true);
+		setShowSettingsForm(false);
+		hideAlerts();
 		try {
 			const id = getRandomIdByGeneration(values.generation);
 			const pokemonData = formatPokemon(await dataService.getPokemonById(id));
 			setPokemon(pokemonData);
-			// setShowSettingsForm(false);
+			console.log(pokemonData.name);
 			const pokemonSpecies = await formatPokemonSpecies(await dataService.getPokemonSpecies(id), true);
 			setSpecies(pokemonSpecies);
 			setSolution(pokemonData.name.toLowerCase());
-			// setShowCard(true);
 			setLoading(false);
-		} catch (error) {}
+		} catch (error) {
+			setError('Error');
+		}
 	};
 
 	const getRandomIdByGeneration = (gen: string) => {
@@ -115,44 +122,63 @@ const Trainer = () => {
 	};
 
 	const handleGuess = (values: QuizValues, actions: FormikHelpers<QuizValues>) => {
+		hideAlerts();
 		const { guess } = values;
 		if (guess.toLowerCase() === solution) {
-			console.log('Congratulations!');
-			handleReset();
+			setShowSuccess(true);
 			actions.resetForm();
 		} else {
-			console.log('Incorrect!');
+			// handleReset();
+			setGuessCounter(prevState => ++prevState);
+			setShowFailure(true);
+			actions.resetForm();
 		}
 	};
 
 	const handleReset = () => {
-		// setShowSettingsForm(true);
-		// setShowCard(false);
+		hideAlerts();
+		setShowSettingsForm(true);
+		setShowCard(false);
 		setSolution('');
+	};
+
+	const hideAlerts = () => {
+		setShowSuccess(false);
+		setShowFailure(false);
 	};
 
 	return (
 		<>
 			<div className={'text-center mt-4'}>
 				<h1>Trainer Gym</h1>
-				<div>Welcome to the Pokemon Trainer Gym. Here you can put your Pokemon knowledge to the test.</div>
+				<p className="lead fw-normal">
+					Welcome to the Pokemon Trainer Gym. Here you can put your Pokemon knowledge to the test.
+				</p>
 			</div>
-			<Row className={'mt-3d-flex justify-content-center'}>
-				<Col className="">
-					<Card
-						loading={loading}
-						pokemon={pokemon}
-						pokemonSpecies={species}
-						error={error}
-						selectedImg="official"
-						showName={false}
-						difficulty={settings.difficulty}
-					/>
-				</Col>
-			</Row>
+			<div>Guess: {guessCounter}</div>
+			<div>Timer: {timer} seconds</div>
+			{showCard && (
+				<Row className={'mt-3d-flex justify-content-center'}>
+					<Col className="">
+						<Card
+							loading={loading}
+							pokemon={pokemon}
+							pokemonSpecies={species}
+							error={error}
+							selectedImg="official"
+							showName={false}
+							difficulty={settings.difficulty}
+						/>
+					</Col>
+				</Row>
+			)}
 			<div className={'w-50 my-3 mx-auto'}>
-				<Settings submitFn={handleStart} />
-				<Quiz submitFn={handleGuess} resetFn={handleReset} refreshFn={fetchPokemon} settings={settings} />
+				{showSettingsForm && <Settings submitFn={handleStart} />}
+				{showSuccess && <Alert variant="success">You are correct!</Alert>}
+				{showFailure && <Alert variant="danger">Incorrect. Try again.</Alert>}
+				{showCard && (
+					<Quiz submitFn={handleGuess} resetFn={handleReset} refreshFn={fetchPokemon} settings={settings} />
+				)}
 			</div>
 		</>
 	);

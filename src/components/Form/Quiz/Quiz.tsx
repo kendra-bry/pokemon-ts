@@ -11,7 +11,7 @@ export interface QuizValues {
 }
 
 const QuizSchema = Yup.object().shape({
-	guess: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
+	guess: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!'),
 });
 
 const initialQuizValues: QuizValues = { guess: '' };
@@ -48,7 +48,12 @@ const Quiz: FC<QuizProps> = ({ submitFn, resetFn, refreshFn, settings }) => {
 						<Row className={`justify-content-center`}>
 							<Col>
 								<Button variant="secondary" onClick={resetFn} type="button" className="w-100">
-									Start Over
+									Change Settings
+								</Button>
+							</Col>
+							<Col>
+								<Button variant="outline-info" onClick={() => console.log('hint')} type="button" className="w-100">
+									Hint
 								</Button>
 							</Col>
 							<Col>
