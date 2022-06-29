@@ -1,31 +1,22 @@
 import { useState } from 'react';
 import dataService from '../../services/base.services';
-import { Formik, FormikHelpers, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import classes from './Trainer.module.css';
 import Card from '../../components/Card/Card';
+import page_classes from '../Page.module.css';
+import classes from './Trainer.module.css';
+import { FormikHelpers } from 'formik';
 import { FormattedPokemon, FormattedPokemonSpecies } from '../../services/interfaces';
 import { formatPokemon, formatPokemonSpecies } from '../../utilities/functions';
 
-interface GuessValues {
-	guess: string;
-}
+import Settings from '../../components/Form/Settings/Settings';
+import { SettingsValues } from '../../components/Form/Settings/Settings';
+import { initialSettingsValues } from '../../components/Form/Settings/Settings';
 
-interface QuizValues {
-	difficulty: string;
-	generation: string;
-}
+import Quiz from '../../components/Form/Quiz/Quiz';
+import { QuizValues } from '../../components/Form/Quiz/Quiz';
 
-const GuessSchema = Yup.object().shape({
-	guess: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
-});
+import { Row, Col } from 'react-bootstrap';
 
-const QuizSchema = Yup.object().shape({
-	difficulty: Yup.string().required('Required'),
-	generation: Yup.string().required('Required'),
-});
-
-const initialPokemon: FormattedPokemon = {
+export const initialPokemon: FormattedPokemon = {
 	img: { official: '' },
 	name: '',
 	hp_label: '',
@@ -37,7 +28,7 @@ const initialPokemon: FormattedPokemon = {
 	types: [],
 };
 
-const initialSpecies: FormattedPokemonSpecies = {
+export const initialSpecies: FormattedPokemonSpecies = {
 	color: '',
 	description: '',
 	generation: '',
@@ -45,31 +36,27 @@ const initialSpecies: FormattedPokemonSpecies = {
 	varieties: [],
 };
 
-const initialGuessValues: GuessValues = { guess: '' };
-
-const initialQuizValues: QuizValues = { difficulty: 'Easy', generation: 'All' };
-
 const Trainer = () => {
 	const [solution, setSolution] = useState('');
 	const [error, setError] = useState('');
-	const [showQuizForm, setShowQuizForm] = useState(true);
-	const [quizValues, setQuizValues] = useState<QuizValues>(initialQuizValues);
+	const [showSettingsForm, setShowSettingsForm] = useState(true);
+	const [settings, setSettings] = useState<SettingsValues>(initialSettingsValues);
 	const [pokemon, setPokemon] = useState<FormattedPokemon>(initialPokemon);
 	const [species, setSpecies] = useState<FormattedPokemonSpecies>(initialSpecies);
-	const [showCard, setShowCard] = useState(false);
+	const [showCard, setShowCard] = useState(true);
 	const [loading, setLoading] = useState(false);
 
-	const fetchPokemon = async (values: QuizValues) => {
+	const fetchPokemon = async (values: SettingsValues) => {
 		setLoading(true);
 		try {
 			const id = getRandomIdByGeneration(values.generation);
 			const pokemonData = formatPokemon(await dataService.getPokemonById(id));
 			setPokemon(pokemonData);
-			setShowQuizForm(false);
+			// setShowSettingsForm(false);
 			const pokemonSpecies = await formatPokemonSpecies(await dataService.getPokemonSpecies(id), true);
 			setSpecies(pokemonSpecies);
 			setSolution(pokemonData.name.toLowerCase());
-			setShowCard(true);
+			// setShowCard(true);
 			setLoading(false);
 		} catch (error) {}
 	};
@@ -120,14 +107,14 @@ const Trainer = () => {
 		return Math.ceil(Math.random() * (max - min) + min).toString();
 	};
 
-	const handleStart = async (values: QuizValues, actions: FormikHelpers<QuizValues>) => {
+	const handleStart = async (values: SettingsValues, actions: FormikHelpers<SettingsValues>) => {
 		try {
-			setQuizValues(values);
+			setSettings(values);
 			await fetchPokemon(values);
 		} catch (error) {}
 	};
 
-	const handleGuess = (values: GuessValues, actions: FormikHelpers<GuessValues>) => {
+	const handleGuess = (values: QuizValues, actions: FormikHelpers<QuizValues>) => {
 		const { guess } = values;
 		if (guess.toLowerCase() === solution) {
 			console.log('Congratulations!');
@@ -139,75 +126,19 @@ const Trainer = () => {
 	};
 
 	const handleReset = () => {
-		setShowQuizForm(true);
-		setShowCard(false);
+		// setShowSettingsForm(true);
+		// setShowCard(false);
 		setSolution('');
 	};
 
-	const generations = ['All', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'];
-
-	const difficulties = ['Easy', 'Moderate', 'Difficult'];
-
 	return (
 		<>
-			<h1>Trainer Gym</h1>
-			<div>Welcome to the Pokemon Trainer Gym. Here you can put your Pokemon knowledge to the test.</div>
-			{showQuizForm && (
-				<Formik
-					initialValues={initialQuizValues}
-					onSubmit={handleStart}
-					validationSchema={QuizSchema}
-					enableReinitialize={true}>
-					{() => (
-						<Form className={classes.form}>
-							<div className={classes.fields}>
-								<div className={classes.input}>
-									<label htmlFor="difficulty">Difficulty</label>
-									<Field
-										id="difficulty"
-										name="difficulty"
-										placeholder="Pokemon difficulty"
-										as="select">
-										{difficulties.map(gen => (
-											<option key={gen} value={gen}>
-												{gen}
-											</option>
-										))}
-									</Field>
-									<ErrorMessage
-										name="difficulty"
-										render={msg => <div className={classes.error}>{msg}</div>}
-									/>
-								</div>
-								<div className={classes.input}>
-									<label htmlFor="generation">Generation(s)</label>
-									<Field
-										id="generation"
-										name="generation"
-										placeholder="Pokemon generation"
-										as="select">
-										{generations.map(gen => (
-											<option key={gen} value={gen}>
-												{gen}
-											</option>
-										))}
-									</Field>
-									<ErrorMessage
-										name="generation"
-										render={msg => <div className={classes.error}>{msg}</div>}
-									/>
-								</div>
-							</div>
-							<button type="submit" className={classes.start}>
-								Start
-							</button>
-						</Form>
-					)}
-				</Formik>
-			)}
-
-			{showCard && (
-				<>
+			<div className={'text-center mt-4'}>
+				<h1>Trainer Gym</h1>
+				<div>Welcome to the Pokemon Trainer Gym. Here you can put your Pokemon knowledge to the test.</div>
+			</div>
+			<Row className={'mt-3d-flex justify-content-center'}>
+				<Col className="">
 					<Card
 						loading={loading}
 						pokemon={pokemon}
@@ -215,39 +146,14 @@ const Trainer = () => {
 						error={error}
 						selectedImg="official"
 						showName={false}
+						difficulty={settings.difficulty}
 					/>
-					<Formik
-						initialValues={initialGuessValues}
-						onSubmit={handleGuess}
-						validationSchema={GuessSchema}
-						enableReinitialize={true}>
-						{() => (
-							<Form className={classes.form}>
-								<div className={classes.input}>
-									<label htmlFor="guess">Name that Pokemon!</label>
-									<Field id="guess" name="guess" placeholder="Pokemon Guess" />
-									<ErrorMessage
-										name="guess"
-										render={msg => <div className={classes.error}>{msg}</div>}
-									/>
-									<button type="submit" className={classes.submit}>
-										Submit
-									</button>
-								</div>
-								<button type="button" className={classes.reset} onClick={handleReset}>
-									Start Over
-								</button>
-								<button
-									type="button"
-									className={classes.new}
-									onClick={async () => await fetchPokemon(quizValues)}>
-									New Pokemon
-								</button>
-							</Form>
-						)}
-					</Formik>
-				</>
-			)}
+				</Col>
+			</Row>
+			<div className={'w-50 my-3 mx-auto'}>
+				<Settings submitFn={handleStart} />
+				<Quiz submitFn={handleGuess} resetFn={handleReset} refreshFn={fetchPokemon} settings={settings} />
+			</div>
 		</>
 	);
 };

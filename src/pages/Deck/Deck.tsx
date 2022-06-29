@@ -1,33 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import Card from '../../components/Card/Card';
-import Button from '../../components/UI/Button/Button';
 import IconButton from '../../components/UI/IconButton/IconButton';
 import { formatPokemon, formatPokemonSpecies } from '../../utilities/functions';
 import dataService from '../../services/base.services';
 import { FormattedPokemon, FormattedPokemonSpecies, FormattedPokemonSprites } from '../../services/interfaces';
-import classes from './Deck.module.css';
 import { faMars, faVenus, faDiamond } from '@fortawesome/free-solid-svg-icons';
-
-const initialPokemon: FormattedPokemon = {
-	img: { official: '' },
-	name: '',
-	hp_label: '',
-	hp_value: '',
-	order: '',
-	height: '',
-	weight: '',
-	moves: [],
-	types: [],
-};
-
-const initialSpecies: FormattedPokemonSpecies = {
-	color: '',
-	description: '',
-	generation: '',
-	has_gender_differences: false,
-	varieties: [],
-};
+import { initialPokemon } from '../Trainer/Trainer';
+import { initialSpecies } from '../Trainer/Trainer';
+import { Button, Row, Col, Form } from 'react-bootstrap';
 
 const PokemonDeck = () => {
 	const { id } = useParams<{ id: string }>();
@@ -108,7 +89,7 @@ const PokemonDeck = () => {
 
 	return (
 		<>
-			<div className={classes.page_container}>
+			<div className={'mt-4'}>
 				<Card
 					loading={loading}
 					pokemon={pokemon}
@@ -117,18 +98,20 @@ const PokemonDeck = () => {
 					selectedImg={image}
 				/>
 
-				<div className={classes.selection}>
-					<label htmlFor="varieties" style={{ margin: '10px' }}>
-						Variety Selection
-					</label>
-					<select name="varieties" id="varieties" onChange={changeVariety} value={variety}>
-						{pokemonSpecies.varieties?.map(variety => (
-							<option key={variety.id}>{variety.name}</option>
-						))}
-					</select>
-				</div>
+				<Row className="d-flex justify-content-center">
+					<Col xl={4} lg={5} md={6} sm={8} xs={10}>
+						<Form.Group>
+							<Form.Label>Variety Selection</Form.Label>
+							<Form.Select size="lg" onChange={changeVariety} value={variety}>
+								{pokemonSpecies.varieties?.map(variety => (
+									<option key={variety.id}>{variety.name}</option>
+								))}
+							</Form.Select>
+						</Form.Group>
+					</Col>
+				</Row>
 
-				<div className={classes.varieties}>
+				<div className={'d-flex justify-content-center my-3'}>
 					<IconButton
 						clickHandler={() => changeImage('official')}
 						title="Official Artwork"
@@ -175,10 +158,28 @@ const PokemonDeck = () => {
 					)}
 				</div>
 
-				<div className={classes.actions}>
-					<Button isDisabled={previousDisabled} clickHandler={goToPrev} text="Previous" />
-					<Button isDisabled={nextDisabled} clickHandler={goToNext} text="Next" />
-				</div>
+				<Row sm={4} md={8} lg={6} className={`justify-content-center`}>
+					<Col>
+						<Button
+							variant="primary"
+							onClick={goToPrev}
+							disabled={previousDisabled}
+							type="button"
+							className="w-100">
+							Previous
+						</Button>
+					</Col>
+					<Col>
+						<Button
+							variant="primary"
+							onClick={goToNext}
+							disabled={nextDisabled}
+							type="button"
+							className="w-100">
+							Next
+						</Button>
+					</Col>
+				</Row>
 			</div>
 		</>
 	);

@@ -111,7 +111,7 @@ export const createPokemonSprites = async (id: string) => {
 export const formatDescription = (descriptions: FlavorText[], name: string, removeName: boolean) => {
 	let englishDescription = descriptions.find(description => description.language.name === 'en');
 	let description = englishDescription?.flavor_text.replace('\f', ' ');
-	return removeName ? description?.replace(name.toUpperCase(), '_________') : description;
+	return removeName ? description?.replace(new RegExp(name, 'gi'), '_________') : description;
 };
 
 export const formatGeneration = (generation: string) => generation.split('-')[1].toUpperCase();
