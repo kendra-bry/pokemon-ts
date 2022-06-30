@@ -1,6 +1,6 @@
 {
 	"name": "pokemon",
-	"homepage": "https://kendra-bry.github.io/pokemon/trainer",
+	"homepage": "https://kendra-bry.github.io/pokemon-ts/trainer",
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
