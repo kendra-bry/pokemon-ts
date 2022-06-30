@@ -7,13 +7,16 @@ import * as Yup from 'yup';
 export interface SettingsValues {
 	difficulty: string;
 	generation: string;
-	time_limit: number;
+	// timer: number;
+	cardLimit: number;
+	hasBeenSubmitted: boolean;
 }
 
 const SettingsSchema = Yup.object().shape({
 	difficulty: Yup.string().required('Required'),
 	generation: Yup.string().required('Required'),
-	time_limit: Yup.number().required('Required'),
+	// timer: Yup.number().required('Required'),
+	cardLimit: Yup.number().required('Required'),
 });
 
 interface SettingsProps {
@@ -26,7 +29,9 @@ const difficulties = ['Easy', 'Moderate', 'Difficult'];
 export const initialSettingsValues: SettingsValues = {
 	difficulty: difficulties[0],
 	generation: generations[0],
-	time_limit: 10,
+	// timer: 3,
+	cardLimit: 5,
+	hasBeenSubmitted: false,
 };
 
 const Settings: FC<SettingsProps> = ({ submitFn }) => {
@@ -38,7 +43,7 @@ const Settings: FC<SettingsProps> = ({ submitFn }) => {
 			enableReinitialize={true}>
 			{() => (
 				<Form className={'border border-dark rounded py-3 px-4 bg-light my-3'}>
-					<h5 className='border-bottom pb-2 mb-2'>Gym Settings</h5>
+					<h5 className="border-bottom pb-2 mb-2">Gym Settings</h5>
 					<div className={''}>
 						<BSForm.Group className="mb-3">
 							<BSForm.Label htmlFor="difficulty">Difficulty</BSForm.Label>
@@ -56,7 +61,7 @@ const Settings: FC<SettingsProps> = ({ submitFn }) => {
 							<ErrorMessage name="difficulty" render={msg => <div className={''}>{msg}</div>} />
 						</BSForm.Group>
 						<BSForm.Group className="mb-3">
-							<BSForm.Label htmlFor="generation">Generation(s)</BSForm.Label>
+							<BSForm.Label htmlFor="generation">Pokemon Generation(s)</BSForm.Label>
 							<Field
 								id="generation"
 								name="generation"
@@ -70,18 +75,45 @@ const Settings: FC<SettingsProps> = ({ submitFn }) => {
 							</Field>
 							<ErrorMessage name="generation" render={msg => <div className={''}>{msg}</div>} />
 						</BSForm.Group>
-						<BSForm.Group className="mb-3">
-							<BSForm.Label htmlFor="time_limit">Time Limit in Seconds</BSForm.Label>
+						{/* <BSForm.Group className="mb-3">
+							<BSForm.Label htmlFor="timer">Time Limit per Card (Seconds)</BSForm.Label>
 							<Field
-								id="time_limit"
-								name="time_limit"
+								id="timer"
+								name="timer"
 								placeholder="Time Limit"
 								type="number"
 								min="1"
 								max="60"
 								as={BSForm.Control}
 							/>
-							<ErrorMessage name="time_limit" render={msg => <div className={''}>{msg}</div>} />
+							<Field
+								id="timer"
+								name="timer"
+								placeholder="Time Limit"
+								type="number"
+								min="1"
+								max="60"
+								as={() => (
+									<InputGroup>
+										<BSForm.Control aria-label="Time Limit" aria-describedby="basic-addon2" />
+										<InputGroup.Text id="basic-addon2">Seconds</InputGroup.Text>
+									</InputGroup>
+								)}
+							/> 
+							<ErrorMessage name="timer" render={msg => <div className={''}>{msg}</div>} />
+						</BSForm.Group>*/}
+						<BSForm.Group className="mb-3">
+							<BSForm.Label htmlFor="cardLimit">Card Limit</BSForm.Label>
+							<Field
+								id="cardLimit"
+								name="cardLimit"
+								placeholder="Card Limit"
+								type="number"
+								min="1"
+								max="60"
+								as={BSForm.Control}
+							/>
+							<ErrorMessage name="cardLimit" render={msg => <div className={''}>{msg}</div>} />
 						</BSForm.Group>
 					</div>
 

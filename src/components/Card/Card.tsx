@@ -11,8 +11,6 @@ import { capitalizeWord } from '../../utilities/functions';
 import colors from '../../utilities/colors-gradient.module.css';
 import { typesIcons } from '../../utilities/type-images';
 
-import { Row, Col } from 'react-bootstrap';
-
 interface CardProps {
 	loading: boolean;
 	pokemon: FormattedPokemon;
@@ -50,63 +48,59 @@ const Card: FC<CardProps> = ({
 	const showHeaderSpace = loading || (!loading && !showImage);
 
 	return (
-		<Row className="d-flex justify-content-center my-3">
-			<Col xl={4} lg={5} md={6} sm={8} xs={10}>
-				<div className="shadow">
-					<div className={`${classes.card} ${colors[color]}`}>
-						{showHeaderSpace && <div className={classes.loading_space}></div>}
-						{showImage && (
-							<div className={classes.header}>
-								{showName && name}
-								<div className={classes.generation}>Gen. {generation}</div>
-								<div className={classes.hp}>
-									<span>{hp_label}</span>
-									{hp_value}
-								</div>
-							</div>
-						)}
-
-						<div className={classes.image}>
-							{error && <div className={classes.error}>Oh no! {error}.</div>}
-							{loading && <img className={classes.spinner} src={spinner} alt={name} />}
-							{showImage && <img src={img[selectedImg as keyof typeof img]} alt={name} />}
+		<div className="shadow">
+			<div className={`${classes.card} ${colors[color]}`}>
+				{showHeaderSpace && <div className={classes.loading_space}></div>}
+				{showImage && (
+					<div className={classes.header}>
+						{showName && name}
+						<div className={classes.generation}>Gen. {generation}</div>
+						<div className={classes.hp}>
+							<span>{hp_label}</span>
+							{hp_value}
 						</div>
-
-						{showMoves && (
-							<div className={classes.size}>
-								<div>
-									<span>No: </span>
-									{order}
-								</div>
-								<div>
-									<span>Height: </span>
-									{height}"
-								</div>
-								<div>
-									<span>Weight: </span>
-									{weight} lbs
-								</div>
-								<div>
-									{types?.map(type => (
-										<img
-											key={type}
-											src={typesIcons[type as keyof typeof typesIcons]}
-											alt={type}
-											height="18"
-											width="18"
-											title={capitalizeWord(type)}
-										/>
-									))}
-								</div>
-							</div>
-						)}
-
-						{showMoves && moves.length > 0 && <Moves moves={moves} />}
-						{!loading && description && <Description description={description} />}
 					</div>
+				)}
+
+				<div className={classes.image}>
+					{error && <div className={classes.error}>Oh no! {error}.</div>}
+					{loading && <img className={classes.spinner} src={spinner} alt={name} />}
+					{showImage && <img src={img[selectedImg as keyof typeof img]} alt={name} />}
 				</div>
-			</Col>
-		</Row>
+
+				{showMoves && (
+					<div className={classes.size}>
+						<div>
+							<span>No: </span>
+							{order}
+						</div>
+						<div>
+							<span>Height: </span>
+							{height}"
+						</div>
+						<div>
+							<span>Weight: </span>
+							{weight} lbs
+						</div>
+						<div>
+							{types?.map(type => (
+								<img
+									key={type}
+									src={typesIcons[type as keyof typeof typesIcons]}
+									alt={type}
+									height="18"
+									width="18"
+									title={capitalizeWord(type)}
+								/>
+							))}
+						</div>
+					</div>
+				)}
+
+				{showMoves && moves.length > 0 && <Moves moves={moves} />}
+				{!loading && description && <Description description={description} />}
+			</div>
+		</div>
 	);
 };
 

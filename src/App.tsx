@@ -8,7 +8,7 @@ function App() {
 	return (
 		<Router>
 			<Nav />
-			<Container>
+			<Container style={{ marginTop: '75px' }}>
 				<Routes />
 			</Container>
 		</Router>

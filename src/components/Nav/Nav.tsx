@@ -1,13 +1,16 @@
-import classes from './Nav.module.css';
+import { Container, Navbar } from 'react-bootstrap';
 import logo from '../../resources/img/pokemon-logo.png';
 
 const Nav = () => {
-
-    return (
-        <div className={classes.nav}>
-            <img src={logo} alt="" height="40" />
-        </div>
-    )
+	return (
+		<Navbar fixed="top" className="bg-dark bg-gradient p-1">
+			<Container className="justify-content-center">
+				<Navbar.Brand>
+					<img src={logo} alt="Pokemon Logo" height="40" />
+				</Navbar.Brand>
+			</Container>
+		</Navbar>
+	);
 };
 
 export default Nav;

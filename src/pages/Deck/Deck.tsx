@@ -90,15 +90,19 @@ const PokemonDeck = () => {
 	return (
 		<>
 			<div className={'mt-4'}>
-				<Card
-					loading={loading}
-					pokemon={pokemon}
-					pokemonSpecies={pokemonSpecies}
-					error={error}
-					selectedImg={image}
-				/>
+				<Row className={'justify-content-center'}>
+					<Col xs={10} sm={8} md={6} lg={5} xl={4}>
+						<Card
+							loading={loading}
+							pokemon={pokemon}
+							pokemonSpecies={pokemonSpecies}
+							error={error}
+							selectedImg={image}
+						/>
+					</Col>
+				</Row>
 
-				<Row className="d-flex justify-content-center">
+				<Row className="d-flex justify-content-center mt-2">
 					<Col xl={4} lg={5} md={6} sm={8} xs={10}>
 						<Form.Group>
 							<Form.Label>Variety Selection</Form.Label>
