@@ -11,11 +11,8 @@ export const Routes = () => {
 			<Route path="/pokemon/:id">
 				<Deck />
 			</Route>
-			<Route path="/trainer">
-				<Trainer />
-			</Route>
 			<Route path="/">
-				<Home />
+				<Trainer />
 			</Route>
 		</Switch>
 	);
